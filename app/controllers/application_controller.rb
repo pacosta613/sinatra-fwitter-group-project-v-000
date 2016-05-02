@@ -72,7 +72,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/tweets' do
-    if params[:content] == ""
+    if params[:content] == "" || params[:content] == " "
       redirect to "/tweets/new"
     else
       user = User.find_by_id(session[:user_id])
