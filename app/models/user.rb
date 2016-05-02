@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
  has_many :tweets
+ has_secure_password
 
  def self.find_by_slug(arg)
    self.all.detect {|object| object.slug == arg}
@@ -9,7 +10,4 @@ class User < ActiveRecord::Base
    self.username.downcase.split(' ').join('-')
  end
 
- def authenticate(passphrase)
-   self.password == passphrase ? self : false
- end
 end
