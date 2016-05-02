@@ -6,6 +6,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
+    set :session_secret, "secret_password"
   end
 
   get '/' do
@@ -21,7 +22,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/users/:slug' do 
-    @user = User.find(params[:slug])
+    @user = User.find_by_slug(params[:slug])
     erb :'users/show'
   end
 
