@@ -1,0 +1,14 @@
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+
+<h2>Sign Up</h2>
+<form action="/signup" method="post">
+  <h4>Email:</h4>
+  <input type="text" name="email" placeholder="email"></input>
+  <h4>Username:</h4>
+  <input type="text" name="username" placeholder="username"></input>
+  <h4>Password:</h4>
+  <input type="text" name="password" placeholder="password"></input>
+  <input type="submit" value="submit"></input>
+</form>
